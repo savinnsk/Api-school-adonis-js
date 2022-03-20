@@ -22,16 +22,7 @@ export default class StudentsController {
 
 }
 
-public async show({ params} : HttpContextContract){
-
-  const student = await Student.findOrFail(params.id);
-
-
-  return{
-      data:student,
-      message:'Student data accessed'
-  }
-}
+  public async show({}: HttpContextContract) {}
 
   public async edit({}: HttpContextContract) {}
 
