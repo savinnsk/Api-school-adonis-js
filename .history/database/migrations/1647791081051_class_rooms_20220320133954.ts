@@ -7,11 +7,7 @@ export default class ClassRooms extends BaseSchema {
     this.schema.createTable(this.tableName, (table) => {
       table.increments('id')
 
-      table.increments('numero_sala')
-      table.integer('capacidade')
-      table.boolean('disponibilidade')
 
-      table.integer('teacher_id').unsigned().references('teachers.matricula').onDelete('CASCADE');
       table.timestamp('created_at', { useTz: true })
       table.timestamp('updated_at', { useTz: true })
     })

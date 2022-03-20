@@ -11,7 +11,7 @@ export default class ClassRooms extends BaseSchema {
       table.integer('capacidade')
       table.boolean('disponibilidade')
 
-      table.integer('teacher_id').unsigned().references('teachers.matricula').onDelete('CASCADE');
+      table.integer('teacher_id').unsigned().references('teachers.matricula').onDelete('CASCADE')
       table.timestamp('created_at', { useTz: true })
       table.timestamp('updated_at', { useTz: true })
     })

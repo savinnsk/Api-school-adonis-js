@@ -7,7 +7,7 @@ export default class ClassRooms extends BaseSchema {
     this.schema.createTable(this.tableName, (table) => {
       table.increments('id')
 
-      table.increments('numero_sala')
+      table.integer('numero_sala')
       table.integer('capacidade')
       table.boolean('disponibilidade')
 
