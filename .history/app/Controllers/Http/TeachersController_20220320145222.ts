@@ -34,22 +34,7 @@ export default class TeachersController {
   }
 
 
-  public async update({params , request}:HttpContextContract){
-
-    const body = request.body();
-    const teacher = await Teacher.findOrFail(params.id);
-
-    teacher.nome = body.nome;
-    teacher.email = body.email;
-    teacher.data_nascimento = body.data_nascimento;
-
-    await teacher.save()
-
-    return{
-        message:'Teacher Updated',
-        data:teacher
-    }
-  }
+  public async update({}: HttpContextContract) {}
 
   public async destroy({}: HttpContextContract) {}
 }
