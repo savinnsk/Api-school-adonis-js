@@ -7,9 +7,6 @@ export default class ClassRoom extends BaseModel {
   @hasMany(()=> Teacher)
   public teachers:HasMany<typeof Teacher>
 
-  @hasMany(() => ClassRoom)
-  public class_room: HasMany<typeof ClassRoom>
-
   @column({ isPrimary: true })
   public id: number
 

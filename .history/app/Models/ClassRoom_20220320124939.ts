@@ -1,15 +1,7 @@
 import { DateTime } from 'luxon'
-import { BaseModel, column, HasMany, hasMany } from '@ioc:Adonis/Lucid/Orm'
-import Teacher from './Teacher'
+import { BaseModel, column } from '@ioc:Adonis/Lucid/Orm'
 
 export default class ClassRoom extends BaseModel {
-
-  @hasMany(()=> Teacher)
-  public teachers:HasMany<typeof Teacher>
-
-  @hasMany(() => ClassRoom)
-  public class_room: HasMany<typeof ClassRoom>
-
   @column({ isPrimary: true })
   public id: number
 
