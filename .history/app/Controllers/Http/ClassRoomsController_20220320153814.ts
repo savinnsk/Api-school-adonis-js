@@ -61,7 +61,7 @@ export default class ClassRoomsController {
 
   public async destroy({params ,}: HttpContextContract) {
     const teacherId = params.teacherId;
-    const classroomId = params.classroomId;
+    const classroomId = params.roomId;
 
     await Teacher.findOrFail(teacherId);
     const classroom = await ClassRoom.findOrFail(classroomId);
