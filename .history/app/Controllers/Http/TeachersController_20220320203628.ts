@@ -1,5 +1,5 @@
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
-import Student from 'App/Models/Student'
+import ClassRoom from 'App/Models/ClassRoom'
 import Teacher from 'App/Models/Teacher'
 import {v4 as uuidv4} from "uuid"
 
@@ -7,7 +7,12 @@ export default class TeachersController {
 
   public async listStudents({params}: HttpContextContract) {
 
-    const students = await Student.query().where('classRoomId',params.classId)
+    const teacher = await Teacher.findOrFail(params.teacherId)
+
+    const students = await ClassRoom.query().where(params.teacherId)
+
+    const studentAtRooms =  await teacher.related('class_rooms').query().preload('students').preload('teachers')
+
 
     return {
       data : students
