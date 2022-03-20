@@ -8,7 +8,7 @@ export default class Teacher extends BaseModel {
   public class_rooms:HasMany<typeof ClassRoom>
 
   @hasMany(() => Student)
-  public students:HasMany<typeof Student>
+  public students:HasMany<typeof ClassRoom>
 
   @column({ isPrimary: true })
   public id: number
