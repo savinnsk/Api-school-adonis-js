@@ -14,7 +14,6 @@ Route.group(() => {
 
   Route.post('teachers/:teacherId/classrooms' , 'ClassRoomsController.store');
   Route.put('teachers/:teacherId/:classroomId/classrooms' , 'ClassRoomsController.update');
-  Route.get('teachers/:teacherId/:roomId/classrooms' , 'ClassRoomsController.show')
 
 
 }).prefix('/api')
