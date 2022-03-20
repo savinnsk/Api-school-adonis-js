@@ -26,7 +26,7 @@ export default class Teacher extends BaseModel {
   public data_nascimento :string
 
   @column()
-  public classRoomId : number
+  public classroomsId : number
 
   @column()
   public studentId : number

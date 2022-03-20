@@ -26,10 +26,10 @@ export default class Teacher extends BaseModel {
   public data_nascimento :string
 
   @column()
-  public classRoomId : number
+  public ClassRoomId : number
 
   @column()
-  public studentId : number
+  public StudentId : number
 
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime

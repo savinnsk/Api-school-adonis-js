@@ -1,20 +1,21 @@
 import { DateTime } from 'luxon'
 import { BaseModel, column, HasMany, hasMany } from '@ioc:Adonis/Lucid/Orm'
+import Teacher from './Teacher'
 import ClassRoom from './ClassRoom'
-import Student from './Student'
 
-export default class Teacher extends BaseModel {
+export default class Student extends BaseModel {
+
+  @hasMany(()=> Teacher)
+  public teachers:HasMany<typeof Teacher>
+
   @hasMany(() => ClassRoom)
-  public class_rooms:HasMany<typeof ClassRoom>
-
-  @hasMany(() => Student)
-  public students:HasMany<typeof Student>
+  public class_rooms: HasMany<typeof ClassRoom>
 
   @column({ isPrimary: true })
   public id: number
 
   @column()
-  public matricula : string
+  public matricula: string
 
   @column()
   public nome : string
@@ -25,11 +26,14 @@ export default class Teacher extends BaseModel {
   @column()
   public data_nascimento :string
 
-  @column()
+ @column()
   public classRoomId : number
 
   @column()
-  public studentId : number
+  public teacherId : number
+
+  @column()
+  public class_room_id : number
 
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime
