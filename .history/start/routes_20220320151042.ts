@@ -12,7 +12,7 @@ Route.group(() => {
 
   Route.resource('/teachers' ,'TeachersController' ).apiOnly()
 
-  Route.post('/:teacherId/classrooms' , 'ClassRoomsController.store')
+  Route.post(':teacherId/classrooms' , 'ClassRoomsController.store')
 
 
 

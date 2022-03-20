@@ -9,17 +9,17 @@ export default class ClassRoomsController {
     const body = request.body();
     const teacherId = params.teacherId;
 
-
-    body.teacherId = Number(teacherId);
     await Teacher.findOrFail(teacherId);
 
-    const classroom = await ClassRoom.create(body)
+    body.teacherId = teacherId;
+
+    const room = await ClassRoom.create(body)
 
     response.status(201);
 
     return{
       message :'Class room created',
-      data:classroom
+      data:room
     }
 
 
