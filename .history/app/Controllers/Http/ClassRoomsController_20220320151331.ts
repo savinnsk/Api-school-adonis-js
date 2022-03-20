@@ -30,20 +30,20 @@ export default class ClassRoomsController {
   public async update({request , params ,}: HttpContextContract) {
     const body = request.body();
     const teacherId = params.teacherId;
-    const roomId = params.classroomId;
+    const roomId = params.roomId;
 
     await Teacher.findOrFail(teacherId);
-    const classroom = await ClassRoom.findOrFail(roomId);
+    const room = await ClassRoom.findOrFail(roomId);
 
-    classroom.disponibilidade = body.disponibilidade;
-    classroom.capacidade = body.capacidade;
+    room.disponibilidade = body.disponibilidade;
+    room.capacidade = body.capacidade;
 
-    await classroom.save();
+    await room.save();
  ;
 
     return {
      message:'Classroom updated',
-     data : classroom
+     data : room
     }
   }
 

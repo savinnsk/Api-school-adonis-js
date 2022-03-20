@@ -12,8 +12,8 @@ Route.group(() => {
 
   Route.resource('/teachers' ,'TeachersController' ).apiOnly()
 
-  Route.post('teachers/:teacherId/classrooms' , 'ClassRoomsController.store')
-  Route.put('teachers/:teacherId/:classroomId/classrooms' , 'ClassRoomsController.update')
+  Route.post('teacher/:teacherId/classrooms' , 'ClassRoomsController.store')
+  Route.put('teacher/:teacherId/:classroomId/classrooms' , 'ClassRoomsController.update')
 
 
 }).prefix('/api')
