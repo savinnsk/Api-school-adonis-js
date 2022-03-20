@@ -4,6 +4,8 @@ import Teacher from './Teacher'
 import ClassRoom from './ClassRoom'
 
 export default class Student extends BaseModel {
+  @column({ isPrimary: true })
+  public id: number
 
   @hasMany(()=> Teacher)
   public teachers:HasMany<typeof Teacher>
@@ -11,8 +13,6 @@ export default class Student extends BaseModel {
   @hasMany(() => ClassRoom)
   public class_room: HasMany<typeof ClassRoom>
 
-  @column({ isPrimary: true })
-  public id: number
 
   @column()
   public matricula: string
