@@ -16,7 +16,7 @@ export default class StudentsController {
 
 
     return{
-      data : roomsStudent
+      data : student_rooms
     }
   }
 
