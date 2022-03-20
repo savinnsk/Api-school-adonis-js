@@ -22,7 +22,7 @@ export default class TeachersController {
 
 }
 
-  public async show({ params} : HttpContextContract){
+public async show({ params} : HttpContextContract){
 
   const teacher = await Teacher.findOrFail(params.id);
 
@@ -31,7 +31,7 @@ export default class TeachersController {
       data:teacher,
       message:'Teacher data accessed'
   }
-  }
+}
 
   public async edit({}: HttpContextContract) {}
 

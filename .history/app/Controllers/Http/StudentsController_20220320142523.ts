@@ -10,6 +10,7 @@ export default class StudentsController {
 
     body.matricula = `${uuidv4()}`
 
+    console.log(body)
 
 
     const student = await Student.create(body);

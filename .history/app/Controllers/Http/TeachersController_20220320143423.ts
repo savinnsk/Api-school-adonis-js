@@ -9,7 +9,6 @@ export default class TeachersController {
     const body = request.body();
 
     body.matricula = `${uuidv4()}`
-
     const teacher = await Teacher.create(body);
 
 
@@ -22,7 +21,7 @@ export default class TeachersController {
 
 }
 
-  public async show({ params} : HttpContextContract){
+public async show({ params} : HttpContextContract){
 
   const teacher = await Teacher.findOrFail(params.id);
 
@@ -31,7 +30,7 @@ export default class TeachersController {
       data:teacher,
       message:'Teacher data accessed'
   }
-  }
+}
 
   public async edit({}: HttpContextContract) {}
 

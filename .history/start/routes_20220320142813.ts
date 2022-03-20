@@ -11,5 +11,9 @@ Route.group(() => {
 Route.group(() => {
   Route.resource('/teachers' ,'TeachersController' ).apiOnly()
 
+  Route.get('/:roomId/rooms' , 'RoomsController.show')
+  Route.post('/rooms' , 'RoomsController.store')
+  Route.put('/:roomId/rooms' , 'RoomsController.update')
+  Route.delete('/:roomId/rooms' , 'RoomsController.destroy')
 
 }).prefix('/api')

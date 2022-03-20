@@ -11,5 +11,4 @@ Route.group(() => {
 Route.group(() => {
   Route.resource('/teachers' ,'TeachersController' ).apiOnly()
 
-
 }).prefix('/api')

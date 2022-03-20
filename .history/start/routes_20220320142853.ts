@@ -9,7 +9,7 @@ Route.group(() => {
 
 
 Route.group(() => {
-  Route.resource('/teachers' ,'TeachersController' ).apiOnly()
+  Route.resource('/' ,'TeachersController' ).apiOnly()
 
 
-}).prefix('/api')
+}).prefix('/api/teachers')
