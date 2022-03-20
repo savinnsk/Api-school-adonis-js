@@ -9,6 +9,7 @@ export default class StudentsController {
   public async store({request , response} : HttpContextContract){
     const body = request.body();
 
+    body.matricula =
 
     console.log(body)
 
