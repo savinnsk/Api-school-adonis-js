@@ -24,13 +24,10 @@ export default class Student extends BaseModel {
   public email : string
 
   @column()
-  public data_nascimento :string
-
- @column()
-  public classroom_id : number
+  public data_nascimento :
 
   @column()
-  public teacher_id : number
+  public class_rooms
 
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime

@@ -24,7 +24,7 @@ export default class ClassRoom extends BaseModel {
   public teacherId: number
 
   @column()
-  public student_id:number
+  public studentId:number
 
   @column()
   public data_nascimento :string

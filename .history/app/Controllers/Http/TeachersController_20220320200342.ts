@@ -19,6 +19,9 @@ export default class TeachersController {
     }
   }
 
+   /*public async listStudents({params}: HttpContextContract){
+
+  }*/
 
   public async store({request , response} : HttpContextContract){
     const body = request.body();

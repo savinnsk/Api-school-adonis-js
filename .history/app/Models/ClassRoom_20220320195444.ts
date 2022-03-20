@@ -21,7 +21,7 @@ export default class ClassRoom extends BaseModel {
   public disponibilidade : boolean
 
   @column()
-  public teacherId: number
+  public teacher_id: number
 
   @column()
   public student_id:number

@@ -9,11 +9,11 @@ export default class StudentsController {
 
     const student= await Student.findOrFail(params.studentId)
 
-    const student_rooms =  await student.related('class_room').query().preload('students')
+    const rooms =  student.preload('class_room')
 
 
     return{
-      data : student_rooms
+      data : rooms
     }
   }
 

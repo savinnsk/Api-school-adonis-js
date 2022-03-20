@@ -4,17 +4,19 @@ import {v4 as uuidv4} from "uuid"
 
 export default class StudentsController {
 
-  public async listClassRooms({params}: HttpContextContract) {
+  public async listClassRooms( {params}: HttpContextContract) {
 
 
-    const student= await Student.findOrFail(params.studentId)
-
-    const student_rooms =  await student.related('class_room').query().preload('students')
+    const student = await Student.query().preload('class_room')
 
 
-    return{
-      data : student_rooms
-    }
+    console.log(student)
+/*
+    classrooms.forEach((room)=> {
+
+      response.send(room);
+    })
+  */
   }
 
   public async store({request , response} : HttpContextContract){
@@ -42,6 +44,7 @@ public async show({ params} : HttpContextContract){
       message:'Student data accessed'
   }
 }
+
 
 public async update({params , request}:HttpContextContract){
 

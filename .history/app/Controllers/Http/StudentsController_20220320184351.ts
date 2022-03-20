@@ -9,11 +9,11 @@ export default class StudentsController {
 
     const student= await Student.findOrFail(params.studentId)
 
-    const student_rooms =  await student.related('class_room').query().preload('students')
 
+    await student.load('class_room')
 
     return{
-      data : student_rooms
+      data : student
     }
   }
 
@@ -42,6 +42,7 @@ public async show({ params} : HttpContextContract){
       message:'Student data accessed'
   }
 }
+
 
 public async update({params , request}:HttpContextContract){
 

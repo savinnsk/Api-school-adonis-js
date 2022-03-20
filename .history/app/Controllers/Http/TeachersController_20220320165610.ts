@@ -1,24 +1,20 @@
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
-import Teacher from 'App/Models/Teacher'
+//import ClassRoom from 'App/Models/ClassRoom';
+//import Student from 'App/Models/Student';
+import Teacher from 'App/Models/Teacher';
 import {v4 as uuidv4} from "uuid"
 
 export default class TeachersController {
 
-  public async listStudents({params}: HttpContextContract) {
+  public async index({params}: HttpContextContract) {
 
-    /*const rooms =  await Teacher.query()
-    .preload('class_rooms', (query)=> query
-    .where('teacher_id' ,params.teacherId ));*/
+    const classroom = await Teacher.findOrFail(params.roomid)
 
-    const teacher = await Teacher.findOrFail(params.teacherId)
-    const studentAtrooms =  await teacher.related('class_rooms').query().preload('students')
-
-
-    return {
-      data : studentAtrooms
-    }
   }
 
+   /*public async listStudents({params}: HttpContextContract){
+
+  }*/
 
   public async store({request , response} : HttpContextContract){
     const body = request.body();

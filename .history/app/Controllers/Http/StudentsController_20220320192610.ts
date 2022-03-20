@@ -6,14 +6,13 @@ export default class StudentsController {
 
   public async listClassRooms({params}: HttpContextContract) {
 
-
     const student= await Student.findOrFail(params.studentId)
 
-    const student_rooms =  await student.related('class_room').query().preload('students')
+    const rooms =  await Student.query().preload('class_room').where('studentId',params.studentId)
 
 
     return{
-      data : student_rooms
+      data : rooms
     }
   }
 

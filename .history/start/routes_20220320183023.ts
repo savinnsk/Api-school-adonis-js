@@ -16,7 +16,7 @@ Route.group(() => {
 
   Route.resource('/teachers' ,'TeachersController' ).apiOnly()
 
-  Route.get('/teachers/classroom/:teacherId' , 'TeachersController.listStudents')
+  Route.get('/teachers/classroom/:roomId' , 'TeachersController.listStudents')
 
   Route.post('teachers/:teacherId/classrooms' , 'ClassRoomsController.store');
   Route.put('teachers/:teacherId/:classroomId/classrooms' , 'ClassRoomsController.update');

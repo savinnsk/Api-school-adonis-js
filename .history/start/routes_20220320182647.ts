@@ -6,7 +6,7 @@ import Route from '@ioc:Adonis/Core/Route'
 Route.group(() => {
   Route.resource('/students' , 'StudentsController').apiOnly()
 
-  Route.get('/students/:studentId/classrooms' , 'StudentsController.listClassRooms')
+  Route.get('/students/studentId' , 'StudentsController.listClass')
 }).prefix('/api')
 
 
@@ -16,7 +16,7 @@ Route.group(() => {
 
   Route.resource('/teachers' ,'TeachersController' ).apiOnly()
 
-  Route.get('/teachers/classroom/:teacherId' , 'TeachersController.listStudents')
+  Route.get('/teachers/classroom/:roomId' , 'TeachersController.listStudents')
 
   Route.post('teachers/:teacherId/classrooms' , 'ClassRoomsController.store');
   Route.put('teachers/:teacherId/:classroomId/classrooms' , 'ClassRoomsController.update');
