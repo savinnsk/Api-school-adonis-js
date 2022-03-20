@@ -1,6 +1,5 @@
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import Student from 'App/Models/Student';
-import {v4 as uuidv4} from "uuid"
 
 export default class StudentsController {
   public async index({}: HttpContextContract) {}
@@ -8,7 +7,6 @@ export default class StudentsController {
   public async store({request , response} : HttpContextContract){
     const body = request.body();
 
-    body.matricula = `${uuidv4()}`
 
     console.log(body)
 
@@ -27,6 +25,7 @@ export default class StudentsController {
 public async show({ params} : HttpContextContract){
 
   const student = await Student.findOrFail(params.id);
+
 
   return{
       data:student,

@@ -8,7 +8,6 @@ export default class StudentsController {
   public async store({request , response} : HttpContextContract){
     const body = request.body();
 
-    body.matricula = `${uuidv4()}`
 
     console.log(body)
 
@@ -27,6 +26,7 @@ export default class StudentsController {
 public async show({ params} : HttpContextContract){
 
   const student = await Student.findOrFail(params.id);
+
 
   return{
       data:student,

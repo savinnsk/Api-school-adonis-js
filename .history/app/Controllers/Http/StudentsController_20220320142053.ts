@@ -28,6 +28,7 @@ public async show({ params} : HttpContextContract){
 
   const student = await Student.findOrFail(params.id);
 
+
   return{
       data:student,
       message:'Student data accessed'
