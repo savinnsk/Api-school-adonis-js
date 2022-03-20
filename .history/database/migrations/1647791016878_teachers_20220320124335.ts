@@ -7,11 +7,9 @@ export default class Teachers extends BaseSchema {
     this.schema.createTable(this.tableName, (table) => {
       table.increments('id')
 
-      table.string('matricula')
-      table.string('nome')
-      table.string('email')
-      table.string('data_nascimento')
-
+      /**
+       * Uses timestamptz for PostgreSQL and DATETIME2 for MSSQL
+       */
       table.timestamp('created_at', { useTz: true })
       table.timestamp('updated_at', { useTz: true })
     })
