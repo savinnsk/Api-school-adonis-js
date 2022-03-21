@@ -1,7 +1,7 @@
 # Api Escola
 Api para uma escola para operações basicas
 
-# status : em desenvolvimento
+### status : (desenvolvimento)
 
 ## Sobre
 
@@ -21,20 +21,30 @@ Para rodas o projeto você precisa antes ter instalado:
 - [NodeJS](https://nodejs.org/pt-br/)
 
 
-#No terminal rode o seguinte comando
+**No terminal rode o seguinte comando**
+
+```zsh
 $ git clone https://github.com/savinnsk/Api_school.git
+```
 
-#Entre na pasta do projeto
-$ cd Api_scool
+**Entre na pasta do projeto**
+```zsh
 
-#Instale as pedendências
+$ cd Api_school
+
+```
+
+**Instale as pedendências**
+```zsh
 $ npm install
 $ npm install @adonisjs/lucid@^16.0.1
 $ node ace configure @adonisjs/lucid
+```
+**selecione banco de dados ___sqlite___**
 
--selecione banco de dados sqlite
+**no arquivo .env cole as segintes variavéis:**
 
-- no arquivo .env cole as segintes variavéis:
+```zsh
 
 PORT=3333
 HOST=0.0.0.0
@@ -43,11 +53,21 @@ APP_KEY=4UqyPzjegWXIsf-TR73H-6GfgVg6kjwD
 DRIVE_DISK=local
 DB_CONNECTION=sqlite
 
+```
 
-Agora é só fazer a migrations com o seguinte codigo :
+**Agora é só fazer a migrations com o seguinte codigo :**
+
 ```zsh
 
 $ node ace migration:run 
+
+```
+
+**rode a aplicação com**
+
+```zsh
+
+$ node ace serve --watch
 
 ```
 
