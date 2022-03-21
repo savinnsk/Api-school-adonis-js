@@ -36,13 +36,6 @@ export default class TeachersController {
 
   public async removeStudentAllocate({params}: HttpContextContract){
 
-    const student = await Student.query().where('class_room_id',params.classId).delete()
-
-    return{
-      message:'student removed',
-      data:student
-    }
-
   }
 
   public async store({request , response} : HttpContextContract){
