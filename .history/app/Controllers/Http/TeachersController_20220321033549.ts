@@ -22,7 +22,7 @@ export default class TeachersController {
       classRoomId:params.classId
     })
 
-    //const studentAlreadyExist = await Student.query().where('id', params.studentId)
+    const studentAlreadyExist = await Student.query().where('id', params.studentId)
 
 
     const classromm = await ClassRoom.query().where('id',params.classId).update({
