@@ -1,7 +1,9 @@
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
+import Database from '@ioc:Adonis/Lucid/Database'
 import ClassRoom from 'App/Models/ClassRoom'
 import Student from 'App/Models/Student'
 import Teacher from 'App/Models/Teacher'
+import Students from 'Database/migrations/1647790979094_students'
 import {v4 as uuidv4} from "uuid"
 
 export default class TeachersController {
@@ -17,20 +19,20 @@ export default class TeachersController {
 
   public async allocateStudent({params}:HttpContextContract){
 
+    //const student = await Student.findOrFail(params.studentId);
+    //const classromm = await ClassRoom.findOrFail(params.classId);
 
-    const student = await Student.query().where('id',params.studentId).update({
-      classRoomId:params.classId
-    })
+    const student = await Students.from
+    ('')
 
-    const classromm = await ClassRoom.query().where('id',params.classId).update({
-      studentId:params.studentId
-    })
+    classromm.studentId = params.studentId;
+    student.classRoomId = params.classRoomId;
 
-
+    await classromm.save()
+    await student.save()
 
     return{
-      message :'student allocated',
-      data:`${student} aloccate at ${classromm}`
+      message :'student allocated'
     }
   }
 

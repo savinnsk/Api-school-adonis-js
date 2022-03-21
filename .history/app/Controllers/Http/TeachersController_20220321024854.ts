@@ -1,7 +1,9 @@
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
+import Database from '@ioc:Adonis/Lucid/Database'
 import ClassRoom from 'App/Models/ClassRoom'
 import Student from 'App/Models/Student'
 import Teacher from 'App/Models/Teacher'
+import Students from 'Database/migrations/1647790979094_students'
 import {v4 as uuidv4} from "uuid"
 
 export default class TeachersController {

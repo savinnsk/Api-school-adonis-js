@@ -17,20 +17,17 @@ export default class TeachersController {
 
   public async allocateStudent({params}:HttpContextContract){
 
+    const student = await Student.findOrFail(params.studentId);
+    const classromm = await ClassRoom.findOrFail(params.classId);
 
-    const student = await Student.query().where('id',params.studentId).update({
-      classRoomId:params.classId
-    })
+    classromm.studentId = params.studentId;
+    student.classRoomId = classromm.id;
 
-    const classromm = await ClassRoom.query().where('id',params.classId).update({
-      studentId:params.studentId
-    })
-
-
+    await classromm.save()
+    await student.save()
 
     return{
-      message :'student allocated',
-      data:`${student} aloccate at ${classromm}`
+      message :'student allocated'
     }
   }
 
