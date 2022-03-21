@@ -21,7 +21,6 @@ Para rodas o projeto você precisa antes ter instalado:
 - [NodeJS](https://nodejs.org/pt-br/)
 
 
-```zsh
 #No terminal rode o seguinte comando
 $ git clone https://github.com/savinnsk/Api_school.git
 
