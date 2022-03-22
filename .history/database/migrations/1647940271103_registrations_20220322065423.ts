@@ -9,7 +9,7 @@ export default class Registrations extends BaseSchema {
 
       table.integer('student_id').unsigned().references('students.id')
       table.integer('class_room_id').unsigned().references('classrooms.id')
-      table.unique(['class_room_id', 'student_id'])
+      table.unique(['teacher_id', 'student_id'])
 
       table.timestamp('created_at', { useTz: true })
       table.timestamp('updated_at', { useTz: true })
