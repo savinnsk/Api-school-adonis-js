@@ -29,7 +29,7 @@ export default class TeachersController {
     else if(classroom.capacidade === 0){
       throw new Error('Class is full')
 
-    }else{
+    }else{//else if(classroom.studentId === student.id){throw new Error('Student Already Allocate')
 
       const regitration = await Registration.create(
         {
@@ -54,12 +54,6 @@ export default class TeachersController {
   }
 
   public async removeStudentAllocate({params}: HttpContextContract){
-
-    const classroom = await ClassRoom.findOrFail(params.classId);
-
-    classroom.capacidade++
-
-    classroom.save()
 
     const regitration = await Registration.query().where('studentId',params.studentId).delete()
 

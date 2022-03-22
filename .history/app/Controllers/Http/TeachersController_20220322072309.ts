@@ -59,8 +59,6 @@ export default class TeachersController {
 
     classroom.capacidade++
 
-    classroom.save()
-
     const regitration = await Registration.query().where('studentId',params.studentId).delete()
 
     return{

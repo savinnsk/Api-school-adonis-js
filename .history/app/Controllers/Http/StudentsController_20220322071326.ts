@@ -1,4 +1,5 @@
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
+import ClassRoom from 'App/Models/ClassRoom';
 import Registration from 'App/Models/Registration';
 import Student from 'App/Models/Student';
 import {v4 as uuidv4} from "uuid"
