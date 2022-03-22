@@ -55,6 +55,8 @@ export default class TeachersController {
 
   public async removeStudentAllocate({params}: HttpContextContract){
 
+    const student = await Student.findOrFail(params.studentId);
+
     const regitration = await Registration.query().where('studentId',params.studentId).delete()
 
 

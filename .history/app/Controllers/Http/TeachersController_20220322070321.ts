@@ -9,7 +9,7 @@ export default class TeachersController {
 
   public async listStudents({params} : HttpContextContract) {
 
-    const students = await Registration.query().where('classRoomId',params.classId)
+    const students = await Student.query().where('classRoomId',params.classId)
 
     return {
       data :students
@@ -55,12 +55,12 @@ export default class TeachersController {
 
   public async removeStudentAllocate({params}: HttpContextContract){
 
-    const regitration = await Registration.query().where('studentId',params.studentId).delete()
-
+    const student = await Student.findOrFail(params.studentId);
+     student.classRoomId = Number('');
 
     return{
       message:'student removed',
-      data:regitration
+      data:student
     }
 
   }
