@@ -9,7 +9,7 @@ export default class TeachersController {
 
   public async listStudents({params} : HttpContextContract) {
 
-    const registrations = await Registration.query().preload()
+    const registrations = await Registration.query().preload('')
 
     const studentsAtClass = await registrations.load('student')
 
@@ -24,6 +24,14 @@ export default class TeachersController {
 
     const student = await Student.findOrFail(params.studentId);
     const classroom = await ClassRoom.findOrFail(params.classId);
+    const registrations = await Registration
+
+    const teacher = await Teacher.findOrFail(params.teacherId);
+
+
+
+  console.log(classroom.teacherId , params.teacherId )
+  console.log(classroom.studentId, student.id )
 
 
     if(classroom.teacherId != params.teacherId){
@@ -33,23 +41,20 @@ export default class TeachersController {
     else if(classroom.capacidade === 0){
       throw new Error('Class is full')
 
-    }else{//else if(classroom.studentId === student.id){throw new Error('Student Already Allocate')
+    }else if(classroom.studentId === student.id){
+       throw new Error('Student Already Allocate')
 
-      const regitration = await Registration.create(
-        {
-          studentId:student.id,
-          classRoomId:classroom.id
-        })
-
+    }else{
+        student.classRoomId = Number(params.classId);
+        classroom.studentId = Number(params.studentId);
         classroom.capacidade--;
 
         student.save()
         classroom.save()
-        regitration.save()
 
         return{
           message :'student allocated',
-          data:regitration
+          data:`student ${student.nome} allocate at classroom ${classroom.id}`
         }
 
     }

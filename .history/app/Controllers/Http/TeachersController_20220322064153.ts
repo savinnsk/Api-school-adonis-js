@@ -9,7 +9,7 @@ export default class TeachersController {
 
   public async listStudents({params} : HttpContextContract) {
 
-    const registrations = await Registration.query().preload()
+    const registrations = await Registration.query().preload('')
 
     const studentsAtClass = await registrations.load('student')
 

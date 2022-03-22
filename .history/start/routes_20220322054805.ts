@@ -15,7 +15,7 @@ Route.group(() => {
   Route.resource('/teachers' ,'TeachersController' ).apiOnly()
 
   Route.get('/teachers/classroom/:classId' , 'TeachersController.listStudents')
-  Route.post('/teachers/:teacherId/classroom/:classId/student/:studentId' , 'TeachersController.allocateStudent')
+  Route.put('/teachers/:teacherId/classroom/:classId/student/:studentId' , 'TeachersController.allocateStudent')
   Route.put('/teachers/classroom/students/:studentId/' , 'TeachersController.removeStudentAllocate')
 
   Route.post('teachers/:teacherId/classrooms' , 'ClassRoomsController.store');
