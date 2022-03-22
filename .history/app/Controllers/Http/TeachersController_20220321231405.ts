@@ -17,28 +17,26 @@ export default class TeachersController {
 
   public async allocateStudent({params}:HttpContextContract){
 
-    const student = await Student.findOrFail(params.studentId);
     const classroom = await ClassRoom.findOrFail(params.classId)
 
-    console.log(student.classRoomId)
-    console.log(classroom.studentId)
-    if(classroom.studentId === student.id){
+    if(classroom.studentId === student.classRoomId){
        throw new Error('Student Already Allocate')
     }else{
 
+      const student = await Student.findOrFail(params.studentId);
 
 
     }
+
+
     student.classRoomId = Number(params.classId);
-    classroom.studentId = Number(params.studentId)
 
     student.save()
-    classroom.save()
 
 
     return{
       message :'student allocated',
-      data:''
+      data:student
     }
   }
 

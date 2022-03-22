@@ -29,8 +29,9 @@ export default class TeachersController {
 
 
     }
+
+
     student.classRoomId = Number(params.classId);
-    classroom.studentId = Number(params.studentId)
 
     student.save()
     classroom.save()

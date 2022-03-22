@@ -7,7 +7,7 @@ export default class StudentsController {
 
   public async listClassRooms({params}: HttpContextContract) {
 
-    const roomsStudent = await ClassRoom.query().where('studentId',params.studentId)
+    const roomsStudent = await ClassRoom.query().where('student_id',params.studentId)
 
     return{
       data : roomsStudent

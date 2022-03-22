@@ -20,7 +20,7 @@ export default class TeachersController {
     const student = await Student.findOrFail(params.studentId);
     const classroom = await ClassRoom.findOrFail(params.classId)
 
-    console.log(student.classRoomId)
+    console.log(student.id)
     console.log(classroom.studentId)
     if(classroom.studentId === student.id){
        throw new Error('Student Already Allocate')
@@ -29,16 +29,16 @@ export default class TeachersController {
 
 
     }
+
+
     student.classRoomId = Number(params.classId);
-    classroom.studentId = Number(params.studentId)
 
     student.save()
-    classroom.save()
 
 
     return{
       message :'student allocated',
-      data:''
+      data:student
     }
   }
 
