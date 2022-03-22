@@ -32,8 +32,7 @@ export default class TeachersController {
 
   public async removeStudentAllocate({params}: HttpContextContract){
 
-    const student = await Student.findOrFail(params.studentId);
-     student.classRoomId = Number('');
+    const student = await Student.findOrFail(params.studentId)
 
     return{
       message:'student removed',

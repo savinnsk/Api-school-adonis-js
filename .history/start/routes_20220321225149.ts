@@ -16,7 +16,7 @@ Route.group(() => {
 
   Route.get('/teachers/classroom/:classId' , 'TeachersController.listStudents')
   Route.put('/teachers/classroom/:classId/student/:studentId' , 'TeachersController.allocateStudent')
-  Route.put('/teachers/classroom/students/:studentId/' , 'TeachersController.removeStudentAllocate')
+  Route.delete('/teachers/classroom/:classId/' , 'TeachersController.removeStudentAllocate')
 
   Route.post('teachers/:teacherId/classrooms' , 'ClassRoomsController.store');
   Route.put('teachers/:teacherId/:classroomId/classrooms' , 'ClassRoomsController.update');
