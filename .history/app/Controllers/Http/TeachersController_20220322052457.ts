@@ -44,6 +44,7 @@ console.log(classroom.studentId, student.id )
         student.save()
         classroom.save()
 
+
         return{
           message :'student allocated',
           data:`student ${student.nome} allocate at classroom ${classroom.id}`

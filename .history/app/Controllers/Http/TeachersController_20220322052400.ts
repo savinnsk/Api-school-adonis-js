@@ -26,7 +26,7 @@ console.log(classroom.teacherId , params.teacherId )
 console.log(classroom.studentId, student.id )
 
 
-    if(classroom.teacherId != params.teacherId){
+    if(classroom.teacherId !== params.teacherId){
       throw new Error('teacher is not owner')
     }
 
@@ -43,6 +43,7 @@ console.log(classroom.studentId, student.id )
 
         student.save()
         classroom.save()
+
 
         return{
           message :'student allocated',

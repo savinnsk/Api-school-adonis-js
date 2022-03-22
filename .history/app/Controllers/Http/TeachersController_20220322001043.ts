@@ -10,48 +10,36 @@ export default class TeachersController {
 
     const students = await Student.query().where('classRoomId',params.classId)
 
-
     return {
-      data :students
+      data : students
     }
   }
 
   public async allocateStudent({params}:HttpContextContract){
 
     const student = await Student.findOrFail(params.studentId);
-    const classroom = await ClassRoom.findOrFail(params.classId);
-    const teacher = await Teacher.findOrFail(params.teacherId)
+    const classroom = await ClassRoom.findOrFail(params.classId)
 
-console.log(classroom.teacherId , params.teacherId )
-console.log(classroom.studentId, student.id )
-
-
-    if(classroom.teacherId != params.teacherId){
-      throw new Error('teacher is not owner')
-    }
-
-    else if(classroom.capacidade === 0){
-      throw new Error('Class is full')
-
-    }else if(classroom.studentId === student.id){
+    console.log(student.classRoomId)
+    console.log(classroom.studentId)
+    if(classroom.studentId === student.id){
        throw new Error('Student Already Allocate')
-
     }else{
-        student.classRoomId = Number(params.classId);
-        classroom.studentId = Number(params.studentId);
-        classroom.capacidade--;
 
-        student.save()
-        classroom.save()
 
-        return{
-          message :'student allocated',
-          data:`student ${student.nome} allocate at classroom ${classroom.id}`
-        }
 
     }
+    student.classRoomId = Number(params.classId);
+    classroom.studentId = Number(params.studentId)
+
+    student.save()
+    classroom.save()
 
 
+    return{
+      message :'student allocated',
+      data:''
+    }
   }
 
   public async removeStudentAllocate({params}: HttpContextContract){
